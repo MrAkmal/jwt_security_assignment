@@ -9,7 +9,7 @@ import java.util.Date;
 public class JWTUtils {
 
 
-    public static String secretKey = "jbvnafdvbn@#fgd12454_41841dfashidhs%&cpoasc";
+    public static String secretKey = "jbvnafdvbn@#fgd12454_41841dfas%;?fafoanvfgwaifhidhs%&cpoasc";
 
     public static Date getExpiresAt() {
         return Date.from(LocalDateTime.now().plusMinutes(5).toInstant(ZoneOffset.UTC));

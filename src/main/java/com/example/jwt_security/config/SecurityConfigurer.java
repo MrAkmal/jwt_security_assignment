@@ -59,7 +59,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         authenticationFilter.setFilterProcessesUrl("/login");
 
 
-        http.oauth2Login();
+//        http.oauth2Login();
 
         http.csrf().disable().cors().disable()
                 .authorizeRequests()

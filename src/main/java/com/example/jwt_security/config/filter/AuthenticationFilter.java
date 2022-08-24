@@ -82,7 +82,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         LocalDateTime accessExpiresAt = LocalDateTime.ofInstant(JWTUtils.getExpiresAt().toInstant(), ZoneId.systemDefault());
         LocalDateTime refreshExpiresAt = LocalDateTime.ofInstant(JWTUtils.getExpiresAt().toInstant().plus(10, ChronoUnit.MINUTES), ZoneId.systemDefault());
 
-        DataDTO<SessionDTO> sessionDTO = new DataDTO<>(new SessionDTO(accessToken, accessExpiresAt, refreshToken, refreshExpiresAt));
+        DataDTO sessionDTO = new DataDTO(new SessionDTO(accessToken, accessExpiresAt, refreshToken, refreshExpiresAt));
 
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         mapper.writeValue(response.getOutputStream(), sessionDTO);
@@ -94,7 +94,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
 
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        DataDTO<ErrorDTO> dto = new DataDTO<>(new ErrorDTO(LocalDateTime.now(), failed.getMessage()));
+        DataDTO dto = new DataDTO(new ErrorDTO(LocalDateTime.now(), failed.getMessage()));
         mapper.writeValue(response.getOutputStream(), dto);
 
     }

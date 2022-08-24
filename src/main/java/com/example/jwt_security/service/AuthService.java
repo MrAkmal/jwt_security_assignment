@@ -194,7 +194,7 @@ public class AuthService implements UserDetailsService {
                 .withExpiresAt(Date.from(LocalDateTime.now().plusMinutes(2).toInstant(ZoneOffset.UTC)))
                 .sign(Algorithm.HMAC256("dasdasdasdijo12489&*()!@casdkf_+/*-"));
 
-        return "http://localhost:8090/api/v1/auth/reset-password?token=" + token;
+        return "http://localhost:8080/reset-password?token=" + token;
     }
 
 }

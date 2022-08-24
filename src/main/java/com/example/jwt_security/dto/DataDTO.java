@@ -10,8 +10,16 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DataDTO<T > {
+public class DataDTO {
 
-    private T body;
+    private SessionDTO body;
+    private ErrorDTO error;
 
+    public DataDTO(SessionDTO body) {
+        this.body = body;
+    }
+
+    public DataDTO(ErrorDTO error) {
+        this.error = error;
+    }
 }
